@@ -2,21 +2,27 @@ package com.econetwireless.epay.business.config;
 
 import com.econetwireless.epay.business.integrations.api.ChargingPlatform;
 import com.econetwireless.epay.business.integrations.impl.ChargingPlatformImpl;
-import com.econetwireless.in.webservice.IntelligentNetworkService;
+import com.econetwireless.in.soap.service.IntelligentNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean;
+import org.springframework.stereotype.Service;
+
 
 /**
  * Created by tnyamakura on 17/3/2017.
  */
+@Service
+@ComponentScan("com.econetwireless.in.soap.service")
+
 @Configuration
 @PropertySource("classpath:econet-ws-application.properties")
 public class IntegrationsConfig {
