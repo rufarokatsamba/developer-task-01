@@ -1,0 +1,49 @@
+1.MobileNumberUtils.java  
+error message : non-static variable LOGGER cannot be referenced from a static context
+Ressolve : added static keyword 
+private static final Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
+
+2.SubscriberRequest.java
+error message : java: cannot find symbol   symbol:   class PreInsert   location: class com.econetwireless.epay.domain.SubscriberRequest
+Ressolve : changed @PreInsert annotation to @PrePersist 
+
+3.PartnerCodeValidatorImpl.java
+
+error message : java: '.' expected
+Ressolve : changed this(super); to super();
+
+4.IntegrationsConfig.java
+
+error message : java: package com.econetwireless.in.webservice.IntelligentNetworkService does not exist
+Ressolve : changed import to import com.econetwireless.in.soap.service.IntelligentNetworkService;
+
+5. MessageConverters.java
+error flags on  package import of com.econetwireless.in.webservice.BalanceResponse  
+error flags on  package import of com.econetwireless.in.webservice.CreditRequest  
+Ressolve : changed imports to
+import com.econetwireless.in.soap.messages.BalanceResponse;
+import com.econetwireless.in.soap.messages.CreditRequest;
+
+6.ChargingPlatformImpl.java
+error flags on  package import of com.econetwireless.in.webservice.IntelligentNetworkService 
+error flags on package import of import com.econetwireless.in.webservice.CreditRequest;
+Ressolve : changed imports to 
+import com.econetwireless.in.soap.service.IntelligentNetworkService;
+import com.econetwireless.in.soap.messages.CreditRequest;
+
+7.electronic-payments-business.iml changes
+<datasource-mapping>
+  <factory-entry name="entityManagerFactory" />
+</datasource-mapping>
+
+ <orderEntry type="module" module-name="intelligent-network-api" />
+
+8.CreditsServiceImpl.java
+error message : java: cannot find symbol
+  symbol:   method persist(com.econetwireless.epay.domain.SubscriberRequest)	
+
+ressolve: changed persist(com.econetwireless.epay.domain.SubscriberRequest) to save(com.econetwireless.epay.domain.SubscriberRequest)  
+          replaced subscriberRequestDao.update(createdSubscriberRequest); with subscriberRequestDao.save(createdSubscriberRequest);
+		 
+9.EnquiriesServiceImpl.java	 
+replaced update with save
