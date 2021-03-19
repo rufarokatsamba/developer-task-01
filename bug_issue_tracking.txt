@@ -5,7 +5,10 @@ private static final Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.c
 
 2.SubscriberRequest.java
 error message : java: cannot find symbol   symbol:   class PreInsert   location: class com.econetwireless.epay.domain.SubscriberRequest
-Ressolve : changed @PreInsert annotation to @PrePersist 
+Ressolve : changed @PreInsert annotation to @PrePersist
+
+Ressolve : changed Request annotation to request
+
 
 3.PartnerCodeValidatorImpl.java
 
